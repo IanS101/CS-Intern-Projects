@@ -5,28 +5,26 @@ from alien import Alien
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
     """Respond to keypresses."""
-    if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_RIGHT:
-            ship.moving_right = 1
-            ship.speed_increase = 0
-        elif event.key == pygame.K_LEFT:
-            ship.moving_left = 1
-            ship.speed_increase = 0
-        elif event.key == pygame.K_SPACE:
-            fire_bullet(ai_settings, screen, ship, bullets)        
-        if (event.mod & pygame.KMOD_CTRL) and (event.key == pygame.K_w):
-            sys.exit()
+    if event.key == pygame.K_RIGHT:
+        ship.moving_right = 1
+        ship.speed_increase = 0
+    elif event.key == pygame.K_LEFT:
+        ship.moving_left = 1
+        ship.speed_increase = 0
+    elif event.key == pygame.K_SPACE:
+        fire_bullet(ai_settings, screen, ship, bullets)        
+    if (event.mod & pygame.KMOD_CTRL) and (event.key == pygame.K_w):
+        sys.exit()
 
 
 def check_keyup_events(event, ship):
     """Respond to key releases."""
-    if event.type == pygame.KEYUP:
-        if event.key == pygame.K_RIGHT:
-            ship.moving_right = 0
-            ship.speed_increase = 0
-        elif event.key == pygame.K_LEFT:
-            ship.moving_left = 0
-            ship.speed_increase = 0
+    if event.key == pygame.K_RIGHT:
+        ship.moving_right = 0
+        ship.speed_increase = 0
+    elif event.key == pygame.K_LEFT:
+        ship.moving_left = 0
+        ship.speed_increase = 0
 
 
 def check_events(ai_settings, screen, ship, bullets):
